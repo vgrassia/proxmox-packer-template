@@ -1,0 +1,12 @@
+# ---> Packer
+# Cache objects
+packer_cache/
+
+# Crash log
+crash.log
+
+# For built boxes
+*.box
+
+# Secret vars
+secrets.auto.pkrvars.hcl
