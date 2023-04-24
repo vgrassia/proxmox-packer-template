@@ -10,7 +10,7 @@ packer {
 build {
   name = "proxmox"
 
-  source "source.proxmox-iso.ubuntu-2004" {
+  source "source.proxmox-iso.debian-11" {
     node        = "proxmox-node-name"
     proxmox_url = "https://proxmox-node.local:8006/api2/json"
     disks {
@@ -29,19 +29,19 @@ build {
   }
 }
 
-source "proxmox-iso" "ubuntu-2004" {
+source "proxmox-iso" "debian-11" {
   insecure_skip_tls_verify = true
   username                 = "packer@pve"
   password                 = var.proxmox_password
-  iso_url                  = "https://releases.ubuntu.com/20.04.6/ubuntu-20.04.6-live-server-amd64.iso"
+  iso_url                  = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.6.0-amd64-netinst.iso"
   iso_storage_pool         = "local"
-  iso_checksum             = "sha256:b8f31413336b9393ad5d8ef0282717b2ab19f007df2e9ed5196c13d8f9153c8b"
-  vm_name                  = "ubuntu-2004-template"
+  iso_checksum             = "sha512:224cd98011b9184e49f858a46096c6ff4894adff8945ce89b194541afdfd93b73b4666b0705234bd4dff42c0a914fdb6037dd0982efb5813e8a553d8e92e6f51"
+  vm_name                  = "debian-11-template"
   vm_id                    = "1000"
   memory                   = 1024
   cores                    = 1
   os                       = "l26"
-  template_description     = "Ubuntu 20.04 image"
+  template_description     = "Debian 11 Bullseye image"
   unmount_iso              = true
   onboot                   = true
   qemu_agent               = true
